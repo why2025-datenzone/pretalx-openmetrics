@@ -1,0 +1,38 @@
+[project]
+name = "pretalx-openmetrics"
+dynamic = ["version"]
+description = "Exporter for metrics in the Openmetrics format"
+readme = "README.rst"
+license = {text = "Apache Software License"}
+keywords = ["pretalx"]
+authors = [
+  {name = "Erik Tews", email = "why@datenzone.de"},
+]
+maintainers = [
+  {name = "Erik Tews", email = "why@datenzone.de"},
+]
+
+dependencies = []
+
+[project.urls]
+homepage = "https://github.com/why2025-datenzone/pretalx-openmetrics"
+repository = "https://github.com/why2025-datenzone/pretalx-openmetrics.git"
+
+[project.entry-points."pretalx.plugin"]
+pretalx_openmetrics = "pretalx_openmetrics:PretalxPluginMeta"
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools"]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = {attr = "pretalx_openmetrics.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["pretalx*"]
+
+[tool.check-manifest]
+ignore = [".*"]

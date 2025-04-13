@@ -1,0 +1,23 @@
+{% extends "orga/base.html" %}
+{% load i18n %}
+
+{% block extra_title %}Pretalx Openmetrics Settings :: {% endblock extra_title %}
+
+{% block content %}
+    <h2>Pretalx Openmetrics URL</h2>
+    {% if not token_url %}
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" name="action" value="create" class="btn btn-primary rounded-circle">{% if event == None %}Create global metrics URL{% else %}Create URL for this event{% endif %}</button>
+        </form>
+    {% else %}
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="token_url" value="{{token_url}}"/>
+            <div class="d-grid gap-2 d-md-block">
+                <button type="submit" name="action" value="reset" class="btn btn-danger rounded-circle">{% if event == None %}Reset this global URL{% else %}Reset the URL for this event{% endif %}</button>
+                <button name="action" value="delete" class="btn btn-danger rounded-circle">{% if event == None %}Delete this global URL{% else %}Delete the URL for this event{% endif %}</button>
+            </div>
+        </form>
+    {% endif %}
+{% endblock content %}

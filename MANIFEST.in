@@ -1,0 +1,6 @@
+recursive-include pretalx_openmetrics/static *
+recursive-include pretalx_openmetrics/templates *
+exclude pretalx_openmetrics/locale/django.pot
+recursive-include pretalx_openmetrics/locale *
+recursive-include pretalx_openmetrics *.py
+include Makefile
