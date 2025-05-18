@@ -147,14 +147,14 @@ class OpenmetricsUrlView(TemplateView, PermissionRequired):
 
 
 class OpenmetricsUrlAdminView(OpenmetricsUrlView):
-    permission_required = "person.is_administrator"
+    permission_required = "person.administrator_user"
 
     def get_event(self):
         return None
 
 
 class OpenmetricsUrlEventView(OpenmetricsUrlView):
-    permission_required = "orga.change_settings"
+    permission_required = "event.update_event"
 
     def get_event(self):
         return self.request.event

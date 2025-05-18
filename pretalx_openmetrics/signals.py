@@ -37,7 +37,7 @@ def pretalx_openmetrics_settings(sender, request, **kwargs):
     """
     _Generate a settings menu entry for a single event._
     """
-    if not request.user.has_perm("orga.change_settings", request.event):
+    if not request.user.has_perm("event.update_event", request.event):
         return []
 
     url = resolve(request.path_info)
